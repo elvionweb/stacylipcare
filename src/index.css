@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-blush font-sans text-ink antialiased overflow-x-hidden; }
+
+@layer components {
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.show, .reveal-left.show, .reveal-right.show { opacity: 1; transform: none; }
+  .ph { background: linear-gradient(135deg, #ffc2d2, #ff94b2 60%, #f95f8e); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+  .animate-marquee { animation: none; }
+}
